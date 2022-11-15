@@ -19,8 +19,8 @@
         // Retieve API route
         $route = $_GET['route'];
         
-        // Remove any trailing / from the API name and convert to lowercase
-        $api = strtolower(rtrim($route, "/"));
+        // Remove any trailing / from the API name and convert to lowercase rtrim($route, "/")
+        $api = basename(strtolower($route));
         
         // Handle the different routes
         switch($api)
