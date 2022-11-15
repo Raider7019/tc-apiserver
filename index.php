@@ -15,8 +15,17 @@
         // Determine if in debug mode
         $debugMode = (array_key_exists('m', $_GET) && ($_GET['m'] === 'd'));
         
-        // Retieve API route
-        $route = $_GET['route'];
+        // Determine the API route
+        if (array_key_exists('route', $_GET))
+        {
+            // Retrieve the API route
+            $route = $_GET['route'];
+        }
+        else
+        {
+            // The route parameter is missing
+            $route = '';
+        }
         
         // Remove any trailing / from the API name and convert to lowercase rtrim($route, "/")
         $api = basename(strtolower($route));
