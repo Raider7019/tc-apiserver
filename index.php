@@ -4,11 +4,6 @@
 
     // Include API modules here
     require_once('./modules/csupply.php');
-    
-    // Definitions
-    define("TSURI", "/cosmos/bank/v1beta1/supply/uluna");
-    define("STURI", "/cosmos/staking/v1beta1/pool");
-    define("CPURI", "/cosmos/distribution/v1beta1/community_pool");
 
     // Read the API server configuration
     $cjson = file_get_contents("apiconf.json");
