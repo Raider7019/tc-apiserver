@@ -18,7 +18,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'GET')
     {
         // Determine if in debug mode
-        $debugMode = $_GET['m'] === 'd';
+        $debugMode = (array_key_exists('m', $_GET) && ($_GET['m'] === 'd'));
         
         // Retieve API route
         $route = $_GET['route'];
