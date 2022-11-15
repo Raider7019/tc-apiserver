@@ -19,7 +19,7 @@
         if (array_key_exists('route', $_GET))
         {
             // Retrieve the API route
-            $route = $_GET['route'];
+            $route = basename($_GET['route']);
         }
         else
         {
@@ -27,8 +27,8 @@
             $route = '';
         }
         
-        // Remove any trailing / from the API name and convert to lowercase rtrim($route, "/")
-        $api = basename(strtolower($route));
+        // Convert API route to lowercase
+        $api = strtolower($route);
         
         // Handle the different routes
         switch($api)
