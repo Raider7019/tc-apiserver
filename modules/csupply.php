@@ -22,7 +22,7 @@
 
         if ($debugMode)
         {
-            echo "DEBUG: TS: " . $totalSupply . " BT: " . $bondedTokens . " CP: " . $communityPool . "<br>";
+            echo "DEBUG: TS: $totalSupply BT: $bondedTokens CP: $communityPool <br>";
         }
         
         // Calculate the revised circulating supply in luna
