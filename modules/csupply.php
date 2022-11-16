@@ -26,7 +26,7 @@
         }
         
         // Calculate the revised circulating supply in luna
-        $cSupply = bcdiv(bcsub(bcsub($totalSupply, $bondedTokens), $communityPool), 1000000, 6);
+        $cSupply = bcdiv(bcsub(bcsub($totalSupply, $bondedTokens), $communityPool), '1000000', 6);
 
         return $cSupply;
     }
