@@ -1,6 +1,5 @@
 <?php
-    // Simple REST API to calculate and return the Terra Classic
-    // circulating supply
+    // Simple REST API router
 
     // Include API modules here
     require_once('./modules/csupply.php');
