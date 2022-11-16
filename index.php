@@ -11,9 +11,6 @@
     // Main API router
     if ($_SERVER['REQUEST_METHOD'] === 'GET')
     {
-        // Determine if in debug mode
-        $debugMode = (array_key_exists('m', $_GET) && ($_GET['m'] === 'd'));
-        
         // Determine the API route
         if (array_key_exists('route', $_GET))
         {
@@ -34,7 +31,7 @@
         {
             case 'csupply':
                 // Render the circulating supply value as raw text
-                echo circulatingSupply($config, $debugMode);
+                echo circulatingSupply($config);
                 break;
                
             case '':
