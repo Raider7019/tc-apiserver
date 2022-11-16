@@ -7,7 +7,7 @@
     define("CPURI", "/cosmos/distribution/v1beta1/community_pool");
 
     // Calculate the circulating supply, taking into account staking
-    function circulatingSupply($config, $debugMode)
+    function circulatingSupply($config)
     {
         // Get the current total supply
         $tsjson = file_get_contents($config->lcd . TSURI);
@@ -20,7 +20,7 @@
         // Get the community pool uluna amount
         $communityPool = getCpool($config, "uluna");
 
-        if ($debugMode)
+        if ($config->debug)
         {
             echo "DEBUG: TS: $totalSupply BT: $bondedTokens CP: $communityPool <br>";
         }
