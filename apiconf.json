@@ -1,3 +1,4 @@
 {
-    "lcd":"https://lcd.terra.dev"
+    "lcd":"https://lcd.terra.dev",
+    "debug": false
 }
