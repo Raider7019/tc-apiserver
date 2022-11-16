@@ -3,7 +3,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^api/v1/(.*)$ index.php?route=$1 [L,NC,QSA]
-    RewriteRule ^dev/api/v1/(.*)$ dev/index.php?route=$1&m=d [L,NC,QSA]
+    RewriteRule ^dev/api/v1/(.*)$ dev/index.php?route=$1 [L,NC,QSA]
     RewriteRule apiconf\.json.*$ - [R=403,L]
     RewriteRule modules.*$ - [R=403,L]
 </IfModule>
