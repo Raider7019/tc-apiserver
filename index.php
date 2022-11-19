@@ -2,6 +2,7 @@
     // Simple REST API router
 
     // Include API modules here
+    require_once('./modules/tsupply.php');
     require_once('./modules/csupply.php');
 
     // Read the API server configuration
@@ -29,6 +30,11 @@
         // Handle the different routes
         switch($api)
         {
+            case 'tsupply':
+                // Render the total supply value as raw text
+                echo totalSupply($config);
+                break;
+                
             case 'csupply':
                 // Render the circulating supply value as raw text
                 echo circulatingSupply($config);
