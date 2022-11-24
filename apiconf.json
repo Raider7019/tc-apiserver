@@ -1,4 +1,6 @@
 {
     "lcd": "https://lcd.terra.dev",
-    "debug": false
+    "fcd": "https://fcd.terra.dev",
+    "debug": false,
+    "legacy": false
 }
