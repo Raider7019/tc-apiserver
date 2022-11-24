@@ -32,7 +32,7 @@
                         // Get the FCD circulating supply in LUNC
                         $fCSupply = file_get_contents($config->fcd . CSURI . "luna");
                         // Round to 6 decimal places and convert to uluna
-                        $totalSupply = bcmul(round($fCSupply, 6, PHP_ROUND_HALF_DOWN), '1000000'); 
+                        $totalSupply = bcmul(nTrim($fCSupply, 6, '.'), '1000000');
                         // FCD figure already includes the community pool
                         $communityPool = 0;
                     }
