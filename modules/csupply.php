@@ -10,7 +10,7 @@
         switch($denom)
         {
             case 'lunc':
-                if (!$config->legacy
+                if (!$config->legacy)
                 {
                     // Get the current total supply
                     $tsjson = file_get_contents($config->lcd . TSURI . "uluna");
