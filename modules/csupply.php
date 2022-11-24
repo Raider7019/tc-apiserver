@@ -40,7 +40,7 @@
 
                 if ($config->debug)
                 {
-                    echo "DEBUG: UUSD TS: $totalSupply BT: $bondedTokens CP: $communityPool<br>";
+                    echo "DEBUG: UUSD TS: $totalSupply CP: $communityPool<br>";
                 }   
         
                 // Calculate the revised circulating supply in ustc
