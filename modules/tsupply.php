@@ -1,22 +1,41 @@
 <?php
     // Simple REST API to calculate and return the Terra Classic circulating supply
-    
-    // Definitions
-    define("TSURI", "/cosmos/bank/v1beta1/supply/uluna");
  
+    require_once('common-defs.php');
+
     // Retrieve the total supply
-    function totalSupply($config)
+    function totalSupply($config, $denom)
     {
-        // Get the current total supply in uluna
-        $tsjson = file_get_contents($config->lcd . TSURI);
-        $totalSupply = json_decode($tsjson, false)->amount->amount;
-      
-        if ($config->debug)
+        switch($denom)
         {
-            echo "DEBUG: TS: $totalSupply";
+            case 'lunc':
+                // Get the current total supply in uluna
+                $tsjson = file_get_contents($config->lcd . TSURI . 'uluna');
+                $totalSupply = json_decode($tsjson, false)->amount->amount;
+ 
+                if ($config->debug)
+                {
+                    echo "DEBUG: LUNC-TS: $totalSupply";
+                }
+                break;
+
+            case 'ustc':
+                // Get the current total supply in uusd
+                $tsjson = file_get_contents($config->lcd . TSURI . 'uusd');
+                $totalSupply = json_decode($tsjson, false)->amount->amount;
+ 
+                if ($config->debug)
+                {
+                    echo "DEBUG: USTC-TS: $totalSupply";
+                }
+                break;
+
+            default:
+                $tSupply = 0;
+                break;
         }
-        
-        // Calculate the total supply in LUNC
+
+        // Convert the total supply from micro-denom to denom
         $tSupply = bcdiv($totalSupply, '1000000', 6);
 
         return $tSupply;

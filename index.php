@@ -15,13 +15,15 @@
         // Determine the API route
         if (array_key_exists('route', $_GET))
         {
-            // Retrieve the API route
-            $route = basename($_GET['route']);
+            // Retrieve the API route components
+            $route = $_GET['route'];
+            $leaf = basename($route);
         }
         else
         {
             // The route parameter is missing
             $route = '';
+            $leaf = '';
         }
         
         // Convert API route to lowercase
@@ -31,21 +33,33 @@
         switch($api)
         {
             case 'tsupply':
-                // Render the total supply value as raw text
-                echo totalSupply($config);
+            case 'tsupply/lunc':
+                // Render the LUNC total supply value as raw text
+                echo totalSupply($config, 'lunc');
                 break;
                 
             case 'csupply':
-                // Render the circulating supply value as raw text
-                echo circulatingSupply($config);
+            case 'csupply/lunc':
+                // Render the LUNC circulating supply value as raw text
+                echo circulatingSupply($config, 'lunc');
+                break;
+
+            case 'tsupply/ustc':
+                // Render the USTC  total supply value as raw text
+                echo totalSupply($config, 'ustc');
                 break;
                
+            case 'csupply/ustc':
+                // Render the USTC circulating supply value as raw text
+                echo circulatingSupply($config, 'ustc');
+                break;
+
             case '':
                 echo "Invalid request";
                 break;
                 
             default:
-                echo "Invalid API '" . $route . "'";
+                echo "Invalid API '" . $leaf . "'";
                 break;
         }
     }
