@@ -10,7 +10,7 @@
         switch($denom)
         {
             case 'lunc':
-                if ($config->calc_mode >= 1)
+                if ($config->calc_mode > 0)
                 {
                     if ($config->calc_mode == 1)
                     {
@@ -26,7 +26,7 @@
                     }
                     else
                     {
-                        // Calculate circulating supply as
+                        // Calculate circulating supply as:
                         // FCD circulating_supply - bonded_tokens
 
                         // Get the FCD circulating supply in LUNC
@@ -57,7 +57,7 @@
                 break;
 
             case 'ustc':
-                if ($config->calc_mode >= 1)
+                if ($config->calc_mode > 0)
                 {
                     // Get the current total supply
                     $tsjson = file_get_contents($config->lcd . TSURI . "uusd");
