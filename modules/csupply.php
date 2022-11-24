@@ -52,7 +52,7 @@
                 else
                 {
                     // Return the legacy FCD circulating supply figure
-                    $cSupply = file_get_contents($config->fcd . CSURI . "luna");
+                    $cSupply = round(file_get_contents($config->fcd . CSURI . "luna"), 6, PHP_ROUND_HALF_DOWN);
                 }
                 break;
 
