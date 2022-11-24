@@ -10,18 +10,36 @@
         switch($denom)
         {
             case 'lunc':
-                if (!$config->legacy)
+                if ($config->calc_mode >= 1)
                 {
-                    // Get the current total supply
-                    $tsjson = file_get_contents($config->lcd . TSURI . "uluna");
-                    $totalSupply = json_decode($tsjson, false)->amount->amount;
+                    if ($config->calc_mode == 1)
+                    {
+                        // Calculate circulating supply as:
+                        // total_supply - bonded_tokens - community_pool
+
+                        // Get the current total supply
+                        $tsjson = file_get_contents($config->lcd . TSURI . "uluna");
+                        $totalSupply = json_decode($tsjson, false)->amount->amount;
+
+                        // Get the community pool uluna amount
+                        $communityPool = getCpool($config, "uluna");
+                    }
+                    else
+                    {
+                        // Calculate circulating supply as
+                        // FCD circulating_supply - bonded_tokens
+
+                        // Get the FCD circulating supply in LUNC
+                        $fCSupply = file_get_contents($config->fcd . CSURI . "luna");
+                        // Round to 6 decimal places and convert to uluna
+                        $totalSupply = bcmul(round($fCSupply, 6, PHP_ROUND_HALF_DOWN), '1000000'); 
+                        // FCD figure already includes the community pool
+                        $communityPool = 0;
+                    }
 
                     // Retrieve staking data
                     $stjson = file_get_contents($config->lcd . STURI);
                     $bondedTokens = json_decode($stjson, false)->pool->bonded_tokens;
-
-                    // Get the community pool uluna amount
-                    $communityPool = getCpool($config, "uluna");
 
                     if ($config->debug)
                     {
@@ -39,7 +57,7 @@
                 break;
 
             case 'ustc':
-                if (!$config->legacy)
+                if ($config->calc_mode >= 1)
                 {
                     // Get the current total supply
                     $tsjson = file_get_contents($config->lcd . TSURI . "uusd");

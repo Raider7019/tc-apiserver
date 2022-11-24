@@ -2,5 +2,5 @@
     "lcd": "https://lcd.terra.dev",
     "fcd": "https://fcd.terra.dev",
     "debug": false,
-    "legacy": false
+    "calc_mode": 1
 }
