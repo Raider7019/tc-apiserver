@@ -16,8 +16,8 @@
         if (array_key_exists('route', $_GET))
         {
             // Retrieve the API route components
-            $leaf = basename($route);
             $route = rtrim($_GET['route'],"/") ;
+            $leaf = basename($route);
         }
         else
         {
