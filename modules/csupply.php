@@ -52,7 +52,14 @@
                 else
                 {
                     // Return the legacy FCD circulating supply figure
-                    $cSupply = round(file_get_contents($config->fcd . CSURI . "luna"), 6, PHP_ROUND_HALF_DOWN);
+                    $fCSupply = file_get_contents($config->fcd . CSURI . "luna");
+                    // Trim to 6 decimals
+                    $cSupply = nTrim($fCSupply, 6, '.');
+
+                    if ($config->debug)
+                    {
+                        echo "DEBUG: ULUNA FCS: $fCSupply CS: $cSupply<br>";
+                    }   
                 }
                 break;
 
