@@ -23,7 +23,7 @@
 
                 if ($config->debug)
                 {
-                    echo "DEBUG: LUNC TS: $totalSupply BT: $bondedTokens CP: $communityPool <br>";
+                    echo "DEBUG: ULUNA TS: $totalSupply BT: $bondedTokens CP: $communityPool<br>";
                 }   
         
                 // Calculate the revised circulating supply in luna
@@ -40,7 +40,7 @@
 
                 if ($config->debug)
                 {
-                    echo "DEBUG: USTC TS: $totalSupply BT: $bondedTokens CP: $communityPool <br>";
+                    echo "DEBUG: UUSD TS: $totalSupply BT: $bondedTokens CP: $communityPool<br>";
                 }   
         
                 // Calculate the revised circulating supply in ustc

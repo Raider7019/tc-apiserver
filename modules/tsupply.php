@@ -15,7 +15,7 @@
  
                 if ($config->debug)
                 {
-                    echo "DEBUG: LUNC-TS: $totalSupply";
+                    echo "DEBUG: ULUNA TS: $totalSupply<br>";
                 }
                 break;
 
@@ -26,7 +26,7 @@
  
                 if ($config->debug)
                 {
-                    echo "DEBUG: USTC-TS: $totalSupply";
+                    echo "DEBUG: UUSD TS: $totalSupply<br>";
                 }
                 break;
 
@@ -37,6 +37,11 @@
 
         // Convert the total supply from micro-denom to denom
         $tSupply = bcdiv($totalSupply, '1000000', 6);
+
+        if ($config->debug)
+        {
+            echo "DEBUG: " . strtoupper($denom) . " $tSupply<br>";
+        } 
 
         return $tSupply;
     }

@@ -1,5 +1,5 @@
 <?php
-    require_once("common.php");
+    require_once("common-defs.php");
 
     // Retieve the community pool amount for the specified denom
     function getCpool($config, $denom)
