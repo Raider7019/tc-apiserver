@@ -34,7 +34,7 @@
                 else
                 {
                     // Return the legacy FCD circulating supply figure
-                    cSupply = file_get_contents($config->fcd . CSURI . "lunc");
+                    $cSupply = file_get_contents($config->fcd . CSURI . "lunc");
                 }
                 break;
 
@@ -59,7 +59,7 @@
                 else
                 {
                     // Return the legacy FCD circulating supply figure
-                    cSupply = file_get_contents($config->fcd . CSURI . "ust");
+                    $cSupply = file_get_contents($config->fcd . CSURI . "ust");
                 }
                 break;
 
